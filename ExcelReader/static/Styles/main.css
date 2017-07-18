@@ -1,0 +1,141 @@
+.graph {
+    width: 60%; /* Ширина блока */
+    margin-left: 18%;
+   }
+
+.form {
+    margin-left: 18%;
+    margin-top: 3%;
+    width: 64%;
+}
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.inputfile + label {
+    text-decoration:none; text-align:center;
+ padding:11px 32px;
+ border:none;
+ -webkit-border-radius:4px;
+ -moz-border-radius:4px;
+ border-radius: 4px;
+ font:18px Arial, Helvetica, sans-serif;
+ font-weight:bold;
+ color:#ffffff;
+ background:#ff0000;
+ -webkit-box-shadow:0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
+ -moz-box-shadow: 0px 0px 2px #bababa,  inset 0px 0px 1px #ffffff;
+ box-shadow:0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
+   -webkit-transition: color 0s linear;
+ -moz-transition:  color 0s linear;
+ -o-transition:  color 0s linear;
+ transition:  color 0s linear;}
+.inputfile + label:hover{
+ padding:11px 32px;
+ border:none;
+ -webkit-border-radius:4px;
+ -moz-border-radius:4px;
+ border-radius: 4px;
+ font:18px Arial, Helvetica, sans-serif;
+ font-weight:bold;
+ color:#ffffff;
+ background:#ee0000;
+ -webkit-box-shadow:0px 0px 2px #bababa;  -moz-box-shadow: 0px 0px 2px #bababa;  box-shadow:0px 0px 2px #bababa;
+}
+.inputfile:focus + label,
+.inputfile + label:active {
+ padding:11px 32px;
+ border:none;
+ -webkit-border-radius:4px;
+ -moz-border-radius:4px;
+ border-radius: 4px;
+ font:18px Arial, Helvetica, sans-serif;
+ font-weight:bold;
+ color:#ffffff;
+ background:#cd0000;
+ -webkit-box-shadow:0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
+ -moz-box-shadow: 0px 0px 2px #bababa,  inset 0px 0px 1px #ffffff;
+ box-shadow:0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
+}
+
+
+
+.button{
+    text-decoration:none; text-align:center;
+ padding:11px 32px;
+ border:none;
+ -webkit-border-radius:4px;
+ -moz-border-radius:4px;
+ border-radius: 4px;
+ font:18px Arial, Helvetica, sans-serif;
+ font-weight:bold;
+ color:#ffffff;
+ background:#ff0000;
+ -webkit-box-shadow:0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
+ -moz-box-shadow: 0px 0px 2px #bababa,  inset 0px 0px 1px #ffffff;
+ box-shadow:0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
+
+   -webkit-transition: color 0s linear;
+ -moz-transition:  color 0s linear;
+ -o-transition:  color 0s linear;
+ transition:  color 0s linear;}
+.button:hover{
+ padding:11px 32px;
+ border:none;
+ -webkit-border-radius:4px;
+ -moz-border-radius:4px;
+ border-radius: 4px;
+ font:18px Arial, Helvetica, sans-serif;
+ font-weight:bold;
+ color:#ffffff;
+ background:#ee0000;
+ -webkit-box-shadow:0px 0px 2px #bababa;  -moz-box-shadow: 0px 0px 2px #bababa;  box-shadow:0px 0px 2px #bababa;
+
+ }
+.button:active{
+ padding:11px 32px;
+ border:none;
+ -webkit-border-radius:4px;
+ -moz-border-radius:4px;
+ border-radius: 4px;
+ font:18px Arial, Helvetica, sans-serif;
+ font-weight:bold;
+ color:#ffffff;
+ background:#cd0000;
+ -webkit-box-shadow:0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
+ -moz-box-shadow: 0px 0px 2px #bababa,  inset 0px 0px 1px #ffffff;
+ box-shadow:0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
+
+ }
+
+
+.textbox {
+   border: 2px solid #E03838; //цвет рамки
+   border-radius: 4px;
+   -webkit-border-radius: 4px;
+   -moz-border-radius: 4px;
+   -khtml-border-radius: 4px;
+   background: #ffeeee !important;
+   outline: none;
+   height: 30px;
+   width: 100%;
+   color: #E03838;
+   font-size: 20px;
+   font-family: Tahoma; // Стиль шрифта
+}
+
+.textbox:hover {
+  color: #ff9999;
+  border: 2px solid #ff9999
+}
+
+
+.textstyle
+{
+text-shadow:1px 1px 0 rgba(0,0,0,1);font-weight:normal;color:#E03838;letter-spacing:0pt;word-spacing:0pt;font-size:19px;text-align:left;font-family:tahoma, verdana, arial, sans-serif;line-height:1;
+}

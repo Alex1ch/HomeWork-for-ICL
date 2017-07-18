@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" ng-app="GraphDraw">
+<head>
+    <meta charset="UTF-8">
+    <title>Страница загрузки</title>
+    <link href="{% static 'Styles/c3.min.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static 'Styles/main.css' %}" rel="stylesheet" type="text/css"/>
+
+    <script type="text/javascript" src="{% static 'Libraries/angular.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'Libraries/GraphDraw.js' %}"></script>
+    <script src="{% static 'Libraries/d3.min.js' %}" charset="utf-8"></script>
+    <script src="{% static 'Libraries/c3.min.js' %}"></script>
+    <script src="{% static 'Libraries/c3-angular.min.js' %}"></script>
+</head>
+<body class="textstyle" ng-controller="GraphDrawCtrl">
+<div class="form">
+<h3>Загрузите файл:</h3><br>
+<form enctype="multipart/form-data" method='post' ng-submit="OnSubmit()">
+    {% csrf_token %}
+    Имя графика:<br>
+    <input class="textbox" type="text" name="name" maxlength="50" id="name" ng-model="name"><br>
+    <br>Описание:<br>
+    <input class="textbox" type="text" id="desc" maxlength="100" name="desc" ng-model="desc"><br>
+    <br>Excel Файл с координатами:
+        <br><br>
+
+        <table width="100%">
+            <td align="left">
+                <div align="left"><input class="inputfile" type="file" id="file" name="file" ng-model="fileInput" onchange="angular.element(this).scope().upload(this)"><label for="file">Выбрать Файл</label>
+                <br><br></div>
+            </td>
+            <td align="right">
+                <div align="right"><input type="submit" value="Отправить" class="button"></div>
+            </td>
+        </table>
+</form>
+<br>
+{[{ error_msg }]}<br><br>
+
+</div>
+<div class="graph">
+<c3chart bindto-id="chart" chart-data="datapoints" chart-columns="datacolumns" chart-x="datax" >
+</c3chart>
+</div>
+<div class="form">
+<h3>Или выберите существующий:</h3><br>
+    <select class="textbox" ng-model="selectedItem" ng-options="item.name for item in items" ng-change="SelectChange()">
+    </select>
+    </div>
+</body>
+</html>
