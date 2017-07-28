@@ -4,14 +4,15 @@ from django.views.generic import DetailView
 from ExcelReader import models
 import xlrd
 
-def mainPage(request):
-    return HttpResponseRedirect('excelreader/loadfile/')
-
-def loadView(request):
-    if request.method=='GET':
+class mainPage(DetailView):
+	def get(self,request):
+		return HttpResponseRedirect('excelreader/loadfile/')
+	
+class loadView(DetailView):	
+    def get(self,request):
         context = {'form':models.LoadForm(),'error_msg':""}
         return render(request, 'loadpage.html', context)
-    if request.method=='POST':
+    def post(self,request):
         form=models.LoadForm(request.POST, request.FILES)
         if form.is_valid():
             if form.cleaned_data['file'].name[::-1][:4]=='xslx' or form.cleaned_data['file'].name[::-1][:3]=='slx':
@@ -50,34 +51,35 @@ def loadView(request):
         return HttpResponse("Не удалось загрузить файл!")
 
 
-def get_list(request):
-    response="";
-    for object in models.ExcelEntries.objects.all():
-        response = response + str(object.id)+"/*/"+str(object.desc)+"/*/"+str(object.name)+"\n"
-    return HttpResponse(response)
+class get_list(DetailView):
+	def get(self,request):
+		response="";
+		for object in models.ExcelEntries.objects.all():
+			response = response + str(object.id)+"/*/"+str(object.desc)+"/*/"+str(object.name)+"\n"
+		return HttpResponse(response)
 
 
-def get_graph(request,*args,**kwargs):
-    id=kwargs['id']
-    instance=models.ExcelEntries.objects.get(id=id)
-    xcl_file = xlrd.open_workbook(instance.file.path)
-    sheet = xcl_file.sheet_by_index(0)
+class get_graph(DetailView):
+	def get(self,request,*args,**kwargs):
+		id=kwargs['id']
+		instance=models.ExcelEntries.objects.get(id=id)
+		xcl_file = xlrd.open_workbook(instance.file.path)
+		sheet = xcl_file.sheet_by_index(0)
 
-    coordsstring = ""
-    colx = sheet.col_values(0)
-    coly = sheet.col_values(1)
+		coordsstring = ""
+		colx = sheet.col_values(0)
+		coly = sheet.col_values(1)
 
-    for i in range(sheet.nrows):
-        if i != 0:
-            coordsstring += "," + str(colx[i])
-        else:
-            coordsstring += str(colx[i])
-    coordsstring += "\n"
-    for i in range(sheet.nrows):
-        if i != 0:
-            coordsstring += "," + str(coly[i])
-        else:
-            coordsstring += str(coly[i])
-    return HttpResponse(coordsstring)
+		for i in range(sheet.nrows):
+			if i != 0:
+				coordsstring += "," + str(colx[i])
+			else:
+				coordsstring += str(colx[i])
+		coordsstring += "\n"
+		for i in range(sheet.nrows):
+			if i != 0:
+				coordsstring += "," + str(coly[i])
+			else:
+				coordsstring += str(coly[i])
+		return HttpResponse(coordsstring)
 
-# Create your views here.

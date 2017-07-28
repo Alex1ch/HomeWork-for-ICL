@@ -21,7 +21,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from Excel_HomeWork import settings
 
 urlpatterns = [
-    url(r'^$',views.mainPage),
+    url(r'^$',views.mainPage.as_view()),
     url(r'^excelreader/', include('ExcelReader.urls')),
     url(r'^admin/', include(admin.site.urls)),
 ]
